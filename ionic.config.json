@@ -1,0 +1,7 @@
+{
+  "name": "TrackMyGastos",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
