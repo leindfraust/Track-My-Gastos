@@ -1,12 +1,14 @@
 <template>
+    <!--Menu Button-->
     <ion-header id="main">
-        <ion-toolbar>
+        <ion-toolbar v-if="checkUser">
             <ion-buttons slot="start">
-                <ion-menu-button v-if="checkUser">☰</ion-menu-button>
+                <ion-menu-button>☰</ion-menu-button>
             </ion-buttons>
             <ion-title>Track My Gastos 💸</ion-title>
         </ion-toolbar>
     </ion-header>
+    <!--Menu Content-->
     <ion-menu side="start" menu-id="first" content-id="main">
         <ion-header>
             <ion-toolbar color="primary">
@@ -15,17 +17,17 @@
         </ion-header>
         <ion-content>
             <ion-list>
-                <ion-item @click="homeNav">💰 Wallet</ion-item>
                 <ion-item @click="clothingNav">👔 Clothing</ion-item>
-                <ion-item>🍔 Food</ion-item>
-                <ion-item>💆🏼 Essentials</ion-item>
-                <ion-item>🔬 Miscellaneous</ion-item>
+                <ion-item @click="foodNav">🍔 Food</ion-item>
+                <ion-item @click="essentialsNav">💆🏼 Essentials</ion-item>
+                <ion-item @click="miscellaneousNav">🔬 Miscellaneous</ion-item>
+                <ion-item @click="aboutNav">ℹ️ About</ion-item>
             </ion-list>
         </ion-content>
     </ion-menu>
 </template>
 <script lang="ts">
-import { IonContent, IonHeader, IonTitle, IonList, IonItem, IonMenu, IonToolbar, IonButtons, IonMenuButton } from '@ionic/vue'
+import { IonContent, IonHeader, IonTitle, IonList, IonItem, IonMenu, IonToolbar, IonButtons, IonMenuButton, menuController } from '@ionic/vue'
 import { defineComponent } from 'vue'
 import store from '../storage'
 export default defineComponent({
@@ -39,24 +41,38 @@ export default defineComponent({
         IonMenuButton,
         IonList,
         IonItem,
-        IonMenu,
+        IonMenu
     },
     data() {
         return {
             checkUser: false
         }
     },
-    async mounted(){
-        if(await store.get('wallet')){
+    async mounted() {
+        if (await store.get('wallet') !== null) {
             this.checkUser = true
         }
     },
     methods: {
-        clothingNav(){
-            this.$router.push('/clothing')
+        async clothingNav() {
+            await this.$router.push('/clothing')
+            await menuController.close()
         },
-        homeNav(){
-            this.$router.push('/')
+        async foodNav(){
+            await this.$router.push('/food')
+            await menuController.close()
+        },
+        async essentialsNav() {
+            await this.$router.push('/essentials')
+            await menuController.close()
+        },
+        async miscellaneousNav(){
+            await this.$router.push('/miscellaneous')
+            await menuController.close()
+        },
+        async aboutNav(){
+            await this.$router.push('/about')
+            await menuController.close()
         }
     }
 })
