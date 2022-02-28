@@ -32,9 +32,12 @@
     </ion-content>
     <ion-content v-else>
       <div class="container is-fluid">
-      <h1 class="title">Wallet💰</h1>
+        <h1 class="title">
+          Wallet💰
+          <button class="button is-danger" @click="resetAccount">RESET</button>
+        </h1>
       </div>
-      <section class="section is-large">
+      <section>
         <div class="container is-fluid">
           <div
             class="notification is-danger"
@@ -49,9 +52,7 @@
             v-if="parseFloat(userMoney) >= 500"
           >You are doing a good job. Keep at it! 🤗</div>
           <h3 class="title is-3">Current Wallet Money: PHP {{ userMoney }}</h3>
-          <button class="button is-danger" @click="resetAccount">RESET</button>
-          <br />
-          <br />
+          <br/>
           <ion-label class="label subtitle is-5">Add funds to your wallet:</ion-label>
           <div class="field has-addons">
             <div class="control">
@@ -75,7 +76,7 @@
           <h4 class="title is-4">Recent transactions:</h4>
           <ul v-for="(activity, index) in activities" :key="index">
             <li>
-              {{ activity.type }}
+              {{ activity.description }}
               <span
                 v-if="activity.transaction !== 0"
               >PHP {{ activity.transaction }}</span>
@@ -138,7 +139,8 @@ export default defineComponent({
       await store.set('wallet', addMoney)
       this.userMoney = await store.get('wallet')
       await this.userDetails.push({
-        type: 'Added funds',
+        type: 'Wallet',
+        description: 'Added funds of',
         transaction: this.userInputMoney,
         date: new Date()
       });
