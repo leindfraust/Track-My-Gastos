@@ -10,7 +10,6 @@
                 <p class="subtitle">This application is aimed at people who are challenged in saving their money, it acts as simply monitoring your daily spending by logging your transactions manually. It also shows your spending activities from different types of transactions and warns you if you are low on money.</p>
                 <br/>
                 <p class="subtitle is-5"><strong>Developed</strong> by <b>Ronan</b>: <a target="_blank" href="https://www.facebook.com/LeindfraustBusiness/">Facebook</a> | | <a target="_blank" href="https://github.com/leindfraust">Github</a></p>
-                <p class="subtitle is-5"><strong>Designed</strong> by <b>Mel Fatima</b>: <a target="_blank" href="https://www.facebook.com/timayamaro/">Facebook</a></p>
             </section>
         </ion-content>
     </ion-page>
