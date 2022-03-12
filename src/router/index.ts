@@ -6,6 +6,7 @@ import Food from '../views/Food.vue'
 import Essentials from '../views/Essentials.vue'
 import Miscellaneous from '@/views/Miscellaneous.vue';
 import About from '@/views/About.vue'
+import History from '@/views/History.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -37,6 +38,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/about',
     name: 'AboutNav',
     component: About
+  },
+  {
+    path: '/history',
+    name: 'HistoryNav',
+    component: History
   }
 ]
 
