@@ -8,11 +8,7 @@ Install global Ionic CLI
 ```
 npm install @ionic/cli -g
 ```
-Go to folder directory of the project
-
-```
-cd track-my-gastos
-```
+Go to folder directory of the project and:
 
 Install packages
 
