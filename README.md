@@ -41,4 +41,4 @@ ionic cap open android
 ```
 
 # License
-See the [LICENSE](LICENSE) file for license rights and limitations (MIT).
+The app will now be private in ready for upcoming changes. Default copyright laws to retain all rights to our source code will be used.
